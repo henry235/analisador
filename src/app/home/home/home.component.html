@@ -1,0 +1,25 @@
+<div class="word-counter-container">
+    <h2>Analisador de Texto</h2>
+  
+    <textarea [(ngModel)]="textoEntrada" (input)="contarPalavras()" placeholder="Digite o texto aqui..."></textarea>
+  
+    <div class="info">
+    <h3>Sobre o texto</h3>
+      <p>{{ totalPalavras }} palavras</p>
+      <p>{{ totalPalavrasUnicas }} palavras únicas</p>
+      <p>{{ quantidadeCaracteres }} caracteres</p>
+  
+      <label for="wordsPerMinute"><strong>Palavras por minuto:</strong></label>
+      <input type="number" id="wordsPerMinute" [(ngModel)]="palavrasPorMinuto" (input)="calcularTempoLeitura()">
+      <p> {{ calcularTempoLeitura() }} minutos de leitura</p>
+  
+      
+    </div>
+    <br><br>
+    <div class="info">
+        <h3>Top 10 Palavras</h3>
+        <ol style="text-align: center;">
+          <li *ngFor="let palavra of top10Palavras">{{ palavra.text }} - {{ palavra.count }}</li>
+        </ol></div>
+  </div>
+  
